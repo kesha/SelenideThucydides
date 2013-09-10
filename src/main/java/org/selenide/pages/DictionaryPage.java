@@ -27,6 +27,7 @@ public class DictionaryPage {
     }
 
     public void shouldSeeDefinition(String definition) {
-        assertTrue(getDefinitions().contains(definition));
+        assertTrue("Should see definition '"+definition+"', but sees only these definitions: " + getDefinitions(),
+                getDefinitions().contains(definition));
     }
 }
