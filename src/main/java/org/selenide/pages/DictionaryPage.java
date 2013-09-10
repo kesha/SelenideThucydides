@@ -11,11 +11,11 @@ import static org.junit.Assert.assertTrue;
 
 public class DictionaryPage {
 
-    @FindBy(name="search")
-	private SelenideElement searchTerms;
-	
-	@FindBy(name="go")
-	private SelenideElement lookupButton;
+    @FindBy(name = "search")
+    private SelenideElement searchTerms;
+
+    @FindBy(name = "go")
+    private SelenideElement lookupButton;
 
     public List<String> getDefinitions() {
         return asList($$("ol li").getTexts());
@@ -30,5 +30,3 @@ public class DictionaryPage {
         assertTrue(getDefinitions().contains(definition));
     }
 }
-
-

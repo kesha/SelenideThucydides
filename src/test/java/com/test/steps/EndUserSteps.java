@@ -1,12 +1,10 @@
 package com.test.steps;
 
-import com.test.pages.DictionaryPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 
-import static ch.lambdaj.Lambda.join;
-import static org.fest.assertions.Assertions.assertThat;
+import org.selenide.pages.DictionaryPage;
 
 public class EndUserSteps extends ScenarioSteps {
 
@@ -17,28 +15,19 @@ public class EndUserSteps extends ScenarioSteps {
     }
 
     @Step
-    public void enters(String keyword) {
-        dictionaryPage.enter_keywords(keyword);
+    public void starts_search_apple() {
+        dictionaryPage.searchFor("apple");
+        dictionaryPage.shouldSeeDefinition("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.");
     }
 
     @Step
-    public void starts_search() {
-        dictionaryPage.lookup_terms();
+    public void starts_search_pear() {
+        dictionaryPage.searchFor("pear");
+        dictionaryPage.shouldSeeDefinition("wrong text");    
+    }
+    
+    public void setPage(Object page) {
+        dictionaryPage = (DictionaryPage) page;
     }
 
-    @Step
-    public void should_see_definition(String definition) {
-        assertThat(dictionaryPage.getDefinitions()).contains(definition);
-    }
-
-    @Step
-    public void is_the_home_page() {
-        dictionaryPage.open();
-    }
-
-    @Step
-    public void looks_for(String term) {
-        enters(term);
-        starts_search();
-    }
 }
