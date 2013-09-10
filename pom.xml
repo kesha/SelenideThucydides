@@ -12,21 +12,21 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <thucydides.version>0.9.210</thucydides.version>
+        <thucydides.version>0.9.205</thucydides.version>
         <webdriver.driver>firefox</webdriver.driver>
     </properties>
 
     <dependencies>
-		<dependency>
-			<groupId>com.codeborne</groupId>
-			<artifactId>selenide</artifactId>
-			<version>2.3</version>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.seleniumhq.selenium</groupId>
-                    <artifactId>selenium-java</artifactId>
-                </exclusion>
-            </exclusions>
+        <dependency>
+          <groupId>com.codeborne</groupId>
+          <artifactId>selenide</artifactId>
+          <version>2.3</version>
+          <exclusions>
+              <exclusion>
+                  <groupId>org.seleniumhq.selenium</groupId>
+                  <artifactId>selenium-java</artifactId>
+              </exclusion>
+          </exclusions>
         </dependency>
         <dependency>
             <groupId>net.thucydides</groupId>
